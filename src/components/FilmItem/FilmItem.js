@@ -3,7 +3,7 @@ import classes from './FilmItem.module.scss'
 
 const FilmItem = ({film}) => {
     return (
-      <div className={classes.filmCard} key={film.kinopoiskId}>
+      <div className={classes.filmCard}>
           <div className={classes.image}>
               <img src={film.posterUrlPreview} alt={film.nameOriginal}/>
           </div>

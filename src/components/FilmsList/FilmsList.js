@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useFetching } from '../../hooks/useFetching';
 import FilmService from '../../API/FilmService';
-import classes from './FilmsList.module.scss'
 import FilmItem from '../FilmItem/FilmItem';
+import classes from './FilmsList.module.scss'
+import Loader from '../UI/Loader/Loader';
 
 const FilmsList = () => {
     const [films, setFilms] = useState([]);
-    const [page, setPage] = useState(1);
 
     const [fetchFilms, isLoading, error] = useFetching(async () => {
-        const response = await FilmService.getFilms(page);
+        const response = await FilmService.getFilms();
         setFilms(response.data.items);
     });
 
@@ -21,8 +21,8 @@ const FilmsList = () => {
       <div className={classes.filmsList}>
           {
               isLoading
-                ? <h1>Загрузка</h1>
-                : films.map((film) => <FilmItem film={film}/>)
+                ? <Loader />
+                : films.map((film) => <FilmItem key={film.kinopoiskId} film={film}/>)
           }
       </div>
     );
