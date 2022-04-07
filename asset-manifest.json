@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Kinoinfo/static/css/main.7acaea2f.css",
+    "main.js": "/Kinoinfo/static/js/main.63813057.js",
+    "index.html": "/Kinoinfo/index.html",
+    "main.7acaea2f.css.map": "/Kinoinfo/static/css/main.7acaea2f.css.map",
+    "main.63813057.js.map": "/Kinoinfo/static/js/main.63813057.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.63813057.js"
+  ]
+}
