@@ -1,38 +1,23 @@
 import './App.scss';
-import { useFetching } from './hooks/useFetching';
-import FilmService from './API/FilmService';
-import { useEffect, useState } from 'react';
+import FilmsList from './components/FilmsList/FilmsList';
+import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom';
+
+let Home = () => {
+    let params = useParams()
+    return <h1>Home</h1>
+}
 
 function App() {
-    const [films, setFilms] = useState([]);
-    const [page, setPage] = useState(1);
-
-    const [fetchFilms, isLoading, error] = useFetching(async () => {
-        const response = await FilmService.getFilms(page);
-        setFilms(response.data.items);
-    });
-
-    useEffect(() => {
-        fetchFilms()
-    }, [])
-
     return (
       <div className="App">
-          {
-              isLoading
-                ? <h1>Загрузка</h1>
-                : films.map((film) => (
-                  <div className={'film-card'} key={film.kinopoiskId}>
-                      <div className="image">
-                          <img src={film.posterUrlPreview} alt={film.nameOriginal}/>
-                      </div>
-                      <div className={'text-content'}>
-                          <h3>{film.nameRu || film.nameOriginal}</h3>
-                          <p>{film.year}</p>
-                      </div>
-                  </div>
-                ))
-          }
+          <BrowserRouter>
+              <Routes>
+                  <Route path={'/films'} element={<FilmsList/>}/>
+                  <Route path={'/home'} element={<Home/>}/>
+                  <Route path={'/film/:id'} element={<Home/>}/>
+                  <Route path={'*'} element={<Navigate to={'/films'} />}/>
+              </Routes>
+          </BrowserRouter>
       </div>
     );
 }
