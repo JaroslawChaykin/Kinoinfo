@@ -1,0 +1,1 @@
+export const ratingAge = (ageStr) => ageStr?.slice(3, 5)

@@ -1,15 +1,15 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import FilmsList from './components/FilmsList/FilmsList';
 import MoviePage from './pages/MoviePage/MoviePage';
+import MainPage from './pages/MainPage/MainPage';
 import './App.scss';
 
 function App() {
     return (
       <BrowserRouter>
           <Routes>
-              <Route path={'/films'} element={<FilmsList/>}/>
-              <Route path={'/films/:id'} element={<MoviePage/>}/>
-              <Route path={'*'} element={<Navigate to={'/films'} />}/>
+              <Route path={'/'} element={<MainPage/>}/>
+              <Route path={'/movies/:id'} element={<MoviePage/>}/>
+              <Route path={'*'} element={<Navigate to={'/'} />}/>
           </Routes>
       </BrowserRouter>
     );

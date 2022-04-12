@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const FilmItem = ({film}) => {
     return (
-      <Link to={`/films/${film.kinopoiskId}`} >
+      <Link to={`/movies/${film.kinopoiskId}`} >
           <div className={classes.filmCard} title={film.nameRu || film.nameOriginal}>
               <div className={classes.image}>
                   <img src={film.posterUrlPreview} alt={film.nameOriginal}/>

@@ -3,37 +3,53 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useFetching } from '../../hooks/useFetching';
 import FilmService from '../../API/FilmService';
 import Loader from '../../components/UI/Loader/Loader';
+import MovieDataList from '../../components/MovieDataList/MovieDataList';
+import MovieMedia from '../../components/MovieMedia/MovieMedia';
+
+import './MoviePage.scss'
+import MovieRating from '../../components/MovieRating/MovieRating';
 
 const MoviePage = () => {
-
     const [movie, setMovie] = useState(null);
     let navigate = useNavigate()
     const params = useParams();
 
     const [fetchMovie, isLoading, error] = useFetching(async () => {
-        const response = await FilmService.getFilmById(params.id);
-        setMovie(response.data);
-    });
+        const responseFilm = await FilmService.getFilmById(params.id);
+        const responseBoxOffice = await FilmService.getFilmBoxOffice(params.id);
+        const responseStaff = await FilmService.getFilmStaff(params.id);
 
+        setMovie({
+            ...responseFilm.data,
+            budget: {
+                ...responseBoxOffice.data,
+            },
+            staff: {
+                ...responseStaff.data,
+            }
+        });
+    });
     useEffect(() => {
         fetchMovie();
     }, []);
 
+    useEffect(() => {
+        if(movie) {
+            document.title = (movie.nameRu || movie.nameOriginal) + ' - Kinoinfo'
+        }
+    }, [movie]);
+
     return (
-      <div>
-          <button onClick={() => navigate(-1)}>Go back</button>
+      <div className="moviePage">
           {
               !movie
                 ? <Loader/>
-                : <div>
-                    <h1>{movie.nameRu || movie.nameOriginal}</h1>
-                    <ul>
-                        {
-                            movie.genres.map((item, index) => {
-                                return <li key={index}>{item.genre}</li>;
-                            })
-                        }
-                    </ul>
+                : <div className={'container'}>
+                    <div className={'bg containerGrid containerGrid1fr2fr1fr'}>
+                        <MovieMedia data={movie} />
+                        <MovieDataList data={movie} />
+                        <MovieRating data={movie} />
+                    </div>
                 </div>
           }
       </div>
