@@ -41,6 +41,7 @@ const MoviePage = () => {
 
     return (
       <div className="moviePage">
+
           {
               !movie
                 ? <Loader/>
