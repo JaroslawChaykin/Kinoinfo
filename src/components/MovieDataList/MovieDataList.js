@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classes from './MovieData.module.scss';
 import MovieHeader from '../MovieHeader/MovieHeader';
+import RowOfDataCategory from '../RowOfDataCategory/RowOfDataCategory';
 
 const MovieDataList = ({data}) => {
 
@@ -10,66 +11,44 @@ const MovieDataList = ({data}) => {
             createArrayFromObject.push(dataStaff[i])
         }
         return createArrayFromObject.reduce((acc, item) => {
-            if (acc[item.professionKey]) {
-                acc[item.professionKey].push(item)
-            } else {
-                acc[item.professionKey] = []
-                acc[item.professionKey].push(item)
-            }
+            acc[item.professionKey] ? acc[item.professionKey].push(item) : acc[item.professionKey] = [item]
             return acc
         }, {})
     }
-
+    const {WRITER,
+        OPERATOR,
+        EDITOR,
+        COMPOSER,
+        PRODUCER_USSR,
+        TRANSLATOR,
+        DIRECTOR,
+        DESIGN,
+        PRODUCER,
+        ACTOR,
+        VOICE_DIRECTOR,
+        UNKNOWN} = createObjectOfStaffMovie(data.staff)
     return (
       <div>
           <MovieHeader data={data}/>
           <div className={classes.dataList}>
               <h1 className={classes.titleAbout}>О фильме</h1>
               <div className={classes.dataColumn}>
-                  <div className={classes.row}>
-                      <div className={classes.title}>Год производства</div>
-                      <div className={classes.value}>{data.year}</div>
-                  </div>
-                  <div className={classes.row}>
-                      <div className={classes.title}>Страна</div>
-                      <div className={classes.value}>{data.countries.map((item, index) => <span key={index}>{item.country} </span>)}</div>
-                  </div>
-                  <div className={classes.row}>
-                      <div className={classes.title}>Жанр</div>
-                      <div className={classes.value}>{data.genres.map((item, index) => <span key={index}>{item.genre}, </span>)}</div>
-                  </div>
-                  <div className={classes.row}>
-                      <div className={classes.title}>Слоган</div>
-                      <div className={classes.value}>«{data.slogan}»</div>
-                  </div>
-                  <div className={classes.row}>
-                      <div className={classes.title}>Режиссер</div>
-                      <div className={classes.value}>—</div>
-                  </div>
-                  <div className={classes.row}>
-                      <div className={classes.title}>Сценарий</div>
-                      <div className={classes.value}>—</div>
-                  </div>
-                  <div className={classes.row}>
-                      <div className={classes.title}>Продюсер</div>
-                      <div className={classes.value}>—</div>
-                  </div>
-                  <div className={classes.row}>
-                      <div className={classes.title}>Оператор</div>
-                      <div className={classes.value}>—</div>
-                  </div>
-                  <div className={classes.row}>
-                      <div className={classes.title}>Композитор</div>
-                      <div className={classes.value}>—</div>
-                  </div>
-                  <div className={classes.row}>
-                      <div className={classes.title}>Художник</div>
-                      <div className={classes.value}>—</div>
-                  </div>
-                  <div className={classes.row}>
-                      <div className={classes.title}>Монтаж</div>
-                      <div className={classes.value}>—</div>
-                  </div>
+                  <RowOfDataCategory title={'Год производства'} data={data.year} />
+                  <RowOfDataCategory title={'Страна'} data={data.countries} />
+                  <RowOfDataCategory title={'Жанр'} data={data.genres} />
+                  <RowOfDataCategory title={'Слоган'} data={data.slogan} isSlogan={true}/>
+                  <RowOfDataCategory title={'Режиссер'} data={DIRECTOR}/>
+                  <RowOfDataCategory title={'Сценарий'} data={WRITER}/>
+                  <RowOfDataCategory title={'Продюсер'} data={PRODUCER}/>
+                  <RowOfDataCategory title={'Оператор'} data={OPERATOR}/>
+                  <RowOfDataCategory title={'Композитор'} data={COMPOSER}/>
+                  <RowOfDataCategory title={'Художник'} data={DESIGN}/>
+                  <RowOfDataCategory title={'Монтаж'} data={EDITOR}/>
+                  <RowOfDataCategory title={'Продюсер СССР'} data={PRODUCER_USSR}/>
+                  <RowOfDataCategory title={'Переводчик'} data={TRANSLATOR}/>
+                  <RowOfDataCategory title={'Актер'} data={ACTOR}/>
+                  <RowOfDataCategory title={'Озвучка'} data={VOICE_DIRECTOR}/>
+                  <RowOfDataCategory title={'Остальные'} data={UNKNOWN}/>
               </div>
           </div>
       </div>
