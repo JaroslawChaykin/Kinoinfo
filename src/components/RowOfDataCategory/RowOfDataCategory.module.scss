@@ -2,13 +2,15 @@
   display: grid;
   grid-template-columns: minmax(200px, 1fr) 3fr;
   padding: 8px 0;
-  .title {
-
-  }
   .value {
     cursor: pointer;
     color: #333;
     max-height: 20px;
     overflow: hidden;
+    .link {
+      &:hover {
+        color: #e65c00;
+      }
+    }
   }
 }

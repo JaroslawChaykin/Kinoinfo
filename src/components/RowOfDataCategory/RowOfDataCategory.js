@@ -1,21 +1,24 @@
 import React from 'react';
 import classes from './RowOfDataCategory.module.scss';
+import { Link } from 'react-router-dom';
 
 const RowOfDataCategory = ({title, data, isSlogan}) => {
 
     const isArray = (entities) => {
         if (Array.isArray(entities)) {
-            return entities.map((item, index) => {
+            return entities.map((item, index, arr) => {
+                let comma = arr.length - 1 === index ? '' : ','
                 if (Object.keys(item).length > 1) {
-                    return <span key={index}>{item.nameRu || item.nameEn}, </span>;
+                    return <Link to={'/'} key={index} className={classes.link}>{item.nameRu || item.nameEn}{comma} </Link>;
+
                 } else {
                     const value = Object.values(item);
-                    return <span key={index}>{value}, </span>;
+                    return <Link to={'/'} key={index} className={classes.link}>{value}{comma} </Link>;
                 }
 
             });
         }
-        return entities;
+        return <Link to={'/'} className={classes.link}>{entities} </Link>;
     };
 
     return (
@@ -35,7 +38,7 @@ const RowOfDataCategory = ({title, data, isSlogan}) => {
                           : isArray(data)
                     }</div>
                 </div>
-                : undefined
+                : null
           }
       </>
     );

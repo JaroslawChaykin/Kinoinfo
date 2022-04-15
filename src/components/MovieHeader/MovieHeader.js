@@ -18,7 +18,10 @@ const MovieHeader = ({data}) => {
               }
           </div>
           <div className={classes.nameOriginal}>
-              {data.nameRu ? data.nameOriginal : ''}
+              {
+                  data.nameRu && data.nameOriginal ? <span className={classes.name}>{data.nameOriginal}</span> : null
+              }
+
               {
                 data.ratingAgeLimits &&
                 <span className={classes.ratingAge}>{ratingAge(data.ratingAgeLimits)}+</span>

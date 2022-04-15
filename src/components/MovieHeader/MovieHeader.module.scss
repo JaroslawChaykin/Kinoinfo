@@ -6,7 +6,10 @@
   .nameOriginal {
     margin: 20px 0;
     font-weight: 600;
-    color: #b2b2b2
+    color: #b2b2b2;
+    .name {
+      margin-right: 10px;
+    }
   }
   .ratingAge {
     border: 1px solid #b2b2b2;
@@ -14,7 +17,6 @@
     font-size: 12px;
     padding: 2px 4px;
     border-radius: 5px;
-    margin-left: 10px;
   }
   .description {
     font-size: 16px;

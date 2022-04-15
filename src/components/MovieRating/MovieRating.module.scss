@@ -1,8 +1,17 @@
 .movieRating {
   .rating {
-    color: #3bb33b;
+    color: #bebebe;
     font-size: 40px;
     font-weight: bold;
+  }
+  .badRating {
+    color: red;
+  }
+  .normalRating {
+    color: #bebebe;
+  }
+  .goodRating {
+    color: #3bb33b;
   }
   .votes {
     color: rgba(178, 178, 178, 0.9);

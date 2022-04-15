@@ -36,7 +36,7 @@ const MovieDataList = ({data}) => {
                   <RowOfDataCategory title={'Год производства'} data={data.year} />
                   <RowOfDataCategory title={'Страна'} data={data.countries} />
                   <RowOfDataCategory title={'Жанр'} data={data.genres} />
-                  <RowOfDataCategory title={'Слоган'} data={data.slogan} isSlogan={true}/>
+                  <RowOfDataCategory title={'Слоган'} data={data.slogan} isSlogan/>
                   <RowOfDataCategory title={'Режиссер'} data={DIRECTOR}/>
                   <RowOfDataCategory title={'Сценарий'} data={WRITER}/>
                   <RowOfDataCategory title={'Продюсер'} data={PRODUCER}/>
