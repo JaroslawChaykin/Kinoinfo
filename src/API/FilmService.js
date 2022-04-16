@@ -42,4 +42,20 @@ export default class FilmService {
             }
         })
     }
+    static async getName(nameID) {
+        return await axios.get(`https://kinopoiskapiunofficial.tech/api/v1/staff/${nameID}`, {
+            headers: {
+                'X-API-KEY': API_FILMS_KEY,
+                'Content-Type': 'application/json',
+            }
+        })
+    }
+    static async getFilmVideos(filmId) {
+        return await axios.get(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${filmId}/videos`, {
+            headers: {
+                'X-API-KEY': API_FILMS_KEY,
+                'Content-Type': 'application/json',
+            }
+        })
+    }
 }

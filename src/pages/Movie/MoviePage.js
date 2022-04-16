@@ -18,6 +18,7 @@ const MoviePage = () => {
         const responseFilm = await FilmService.getFilmById(params.id);
         const responseBoxOffice = await FilmService.getFilmBoxOffice(params.id);
         const responseStaff = await FilmService.getFilmStaff(params.id);
+        const responseVideo = await FilmService.getFilmVideos(params.id);
 
         setMovie({
             ...responseFilm.data,
@@ -26,6 +27,9 @@ const MoviePage = () => {
             },
             staff: {
                 ...responseStaff.data,
+            },
+            videos: {
+                ...responseVideo.data
             }
         });
     });
