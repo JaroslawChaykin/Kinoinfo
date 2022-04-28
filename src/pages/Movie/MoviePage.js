@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useFetching } from '../../hooks/useFetching';
 import FilmService from '../../API/FilmService';
 import Loader from '../../components/UI/Loader/Loader';
@@ -11,7 +11,6 @@ import MovieRating from '../../components/MovieRating/MovieRating';
 
 const MoviePage = () => {
     const [movie, setMovie] = useState(null);
-    let navigate = useNavigate()
     const params = useParams();
 
     const [fetchMovie, isLoading, error] = useFetching(async () => {
@@ -19,6 +18,7 @@ const MoviePage = () => {
         const responseBoxOffice = await FilmService.getFilmBoxOffice(params.id);
         const responseStaff = await FilmService.getFilmStaff(params.id);
         const responseVideo = await FilmService.getFilmVideos(params.id);
+        const responseImage = await FilmService.getFilmImages(params.id);
 
         setMovie({
             ...responseFilm.data,
@@ -28,8 +28,13 @@ const MoviePage = () => {
             staff: {
                 ...responseStaff.data,
             },
-            videos: {
-                ...responseVideo.data
+            media: {
+                videos: {
+                    ...responseVideo.data
+                },
+                images: {
+                    ...responseImage.data
+                }
             }
         });
     });

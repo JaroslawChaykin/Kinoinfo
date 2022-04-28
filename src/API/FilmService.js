@@ -58,4 +58,12 @@ export default class FilmService {
             }
         })
     }
+    static async getFilmImages(filmId) {
+        return await axios.get(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${filmId}/images`, {
+            headers: {
+                'X-API-KEY': API_FILMS_KEY,
+                'Content-Type': 'application/json',
+            }
+        })
+    }
 }

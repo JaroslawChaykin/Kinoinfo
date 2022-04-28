@@ -7,6 +7,7 @@ const RowOfDataCategory = ({title, data, isSlogan, noTripleDot}) => {
     const params = useParams()
 
     const generateLink = (entities) => {
+
         if (Array.isArray(entities)) {
             return entities.map((item, index, arr) => {
                 let comma = arr.length - 1 === index ? '' : ','
