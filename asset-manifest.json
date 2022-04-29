@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Kinoinfo/static/css/main.393d961c.css",
-    "main.js": "/Kinoinfo/static/js/main.887efa05.js",
+    "main.js": "/Kinoinfo/static/js/main.590aaf9d.js",
     "index.html": "/Kinoinfo/index.html",
     "main.393d961c.css.map": "/Kinoinfo/static/css/main.393d961c.css.map",
-    "main.887efa05.js.map": "/Kinoinfo/static/js/main.887efa05.js.map"
+    "main.590aaf9d.js.map": "/Kinoinfo/static/js/main.590aaf9d.js.map"
   },
   "entrypoints": [
     "static/css/main.393d961c.css",
-    "static/js/main.887efa05.js"
+    "static/js/main.590aaf9d.js"
   ]
 }
