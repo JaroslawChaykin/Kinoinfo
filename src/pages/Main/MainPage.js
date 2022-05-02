@@ -6,7 +6,7 @@ const MainPage = () => {
         document.title = 'Главная'
     }, []);
     return (
-      <div>
+      <div style={{margin: '0 auto', width: '1170px', marginTop: '50px'}}>
           <FilmsList/>
       </div>
     );

@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useFetching } from '../../hooks/useFetching';
 import FilmService from '../../API/FilmService';
 import Loader from '../../components/UI/Loader/Loader';
 import MovieDataList from '../../components/MovieDataList/MovieDataList';
 import MovieMedia from '../../components/MovieMedia/MovieMedia';
+import MovieRating from '../../components/MovieRating/MovieRating';
 
 import './MoviePage.scss'
-import MovieRating from '../../components/MovieRating/MovieRating';
 
 const MoviePage = () => {
     const [movie, setMovie] = useState(null);
     const params = useParams();
+    const navigate = useNavigate()
 
     const [fetchMovie, isLoading, error] = useFetching(async () => {
         const responseFilm = await FilmService.getFilmById(params.id);
@@ -50,7 +51,13 @@ const MoviePage = () => {
 
     return (
       <div className="moviePage">
-
+          {
+              error &&
+            <div style={{zIndex: 1, position: 'relative'}}>
+                <h1>Что-то пошло не так, и данные не загрузились, выйдите пожалуйста, я оставлю вам кнопку</h1>
+                <button onClick={() => navigate(-1)}>Вот кнопочка чтобы выйти</button>
+            </div>
+          }
           {
               !movie
                 ? <Loader/>
