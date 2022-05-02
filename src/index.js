@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
-import './index.scss';
+import React from 'react';
 import App from './App';
 import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import './index.scss';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App/>
+      <Provider store={store}>
+          <App/>
+      </Provider>
   </React.StrictMode>,
 );
