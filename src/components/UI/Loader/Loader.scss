@@ -1,11 +1,12 @@
 .loader-full-screen {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: 0;
+  left: 0;
 }
 
 .loader {

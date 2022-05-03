@@ -4,17 +4,6 @@ const API_FILMS_KEY = 'f5b645fa-06a0-4b07-bb9e-15e285ff1473';
 
 export default class FilmService {
 
-    static async getFilms() {
-        return await axios.get('https://kinopoiskapiunofficial.tech/api/v2.2/films', {
-            params: {
-                page: 2
-            },
-            headers: {
-                'X-API-KEY': API_FILMS_KEY,
-                'Content-Type': 'application/json',
-            }
-        })
-    }
     static async getFilmById(id) {
         return await axios.get(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, {
             headers: {

@@ -1,6 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import MovieListSlice from './MovieList/MovieList.slice';
+import { moviesAPI } from '../services/MoviesService';
 
 export const rootReducer = combineReducers({
-    movies: MovieListSlice
+    [moviesAPI.reducerPath]: moviesAPI.reducer
 })
