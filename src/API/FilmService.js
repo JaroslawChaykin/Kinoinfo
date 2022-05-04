@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_FILMS_KEY = 'f5b645fa-06a0-4b07-bb9e-15e285ff1473';
+const API_FILMS_KEY = '7a168f15-46dd-4e8b-b8af-a46b9a0793ec';
 
 export default class FilmService {
 
