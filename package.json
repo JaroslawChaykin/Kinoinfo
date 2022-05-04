@@ -16,15 +16,16 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
     "sass": "^1.50.0",
+    "source-map-explorer": "^2.5.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

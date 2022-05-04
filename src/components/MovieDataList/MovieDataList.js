@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classes from './MovieData.module.scss';
 import MovieHeader from '../MovieHeader/MovieHeader';
 import RowOfDataCategory from '../RowOfDataCategory/RowOfDataCategory';
