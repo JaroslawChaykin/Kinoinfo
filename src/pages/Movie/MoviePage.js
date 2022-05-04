@@ -15,6 +15,7 @@ const MoviePage = () => {
     const params = useParams();
     const navigate = useNavigate()
     const {data: movieData} = moviesAPI.useFetchMovieByIDQuery(params.id)
+    const {data: movieBoxOfficeData} = moviesAPI.useFetchMovieBoxOfficeQuery(params.id)
 
     const [fetchMovie, isLoading, error] = useFetching(async () => {
         const responseFilm = await FilmService.getFilmById(params.id);

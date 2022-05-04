@@ -30,12 +30,12 @@ export const moviesAPI = createApi({
         }),
         fetchMovieBoxOffice: build.query({
             query: (args) => ({
-                url: `/films/${args}`,
+                url: `/films/${args}/box_office`,
                 headers: {
                     'X-API-KEY': API_FILMS_KEY,
                     'Content-Type': 'application/json',
                 }
             })
-        })
+        }),
     }),
 });
