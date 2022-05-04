@@ -8,11 +8,13 @@ import MovieMedia from '../../components/MovieMedia/MovieMedia';
 import MovieRating from '../../components/MovieRating/MovieRating';
 
 import './MoviePage.scss'
+import { moviesAPI } from '../../services/MoviesService';
 
 const MoviePage = () => {
     const [movie, setMovie] = useState(null);
     const params = useParams();
     const navigate = useNavigate()
+    const {data: movieData} = moviesAPI.useFetchMovieByIDQuery(params.id)
 
     const [fetchMovie, isLoading, error] = useFetching(async () => {
         const responseFilm = await FilmService.getFilmById(params.id);
