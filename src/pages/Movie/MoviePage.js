@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Loader from '../../components/UI/Loader/Loader';
 import MovieDataList from '../../components/MovieDataList/MovieDataList';
 import MovieMedia from '../../components/MovieMedia/MovieMedia';
 import MovieRating from '../../components/MovieRating/MovieRating';
 
-import './MoviePage.scss'
 import { moviesAPI } from '../../services/MoviesService';
 import { staffAPI } from '../../services/StaffService';
+import './MoviePage.scss'
 
 const MoviePage = () => {
     const params = useParams();
-    const navigate = useNavigate()
     const {data: movieData, isLoading: isLoadingM} = moviesAPI.useFetchMovieByIDQuery(params.id)
     const {data: movieBoxOfficeData, isLoading: isLoadingBO} = moviesAPI.useFetchMovieBoxOfficeQuery(params.id)
     const {data: movieVideos, isLoading: isLoadingV} = moviesAPI.useFetchMovieVideosQuery(params.id)

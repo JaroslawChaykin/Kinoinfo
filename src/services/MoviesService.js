@@ -8,7 +8,7 @@ export const moviesAPI = createApi({
     baseQuery: fetchBaseQuery({baseUrl: baseMovieUrl}),
     endpoints: (build) => ({
         fetchMovies: build.query({
-            query: (args) => ({
+            query: () => ({
                 url: '/films',
                 params: {
                   page: 2
@@ -20,8 +20,8 @@ export const moviesAPI = createApi({
             })
         }),
         fetchMovieByID: build.query({
-            query: (args) => ({
-                url: `/films/${args}`,
+            query: (arg) => ({
+                url: `/films/${arg}`,
                 headers: {
                     'X-API-KEY': API_FILMS_KEY,
                     'Content-Type': 'application/json',
@@ -29,8 +29,8 @@ export const moviesAPI = createApi({
             })
         }),
         fetchMovieBoxOffice: build.query({
-            query: (args) => ({
-                url: `/films/${args}/box_office`,
+            query: (arg) => ({
+                url: `/films/${arg}/box_office`,
                 headers: {
                     'X-API-KEY': API_FILMS_KEY,
                     'Content-Type': 'application/json',
@@ -38,8 +38,8 @@ export const moviesAPI = createApi({
             })
         }),
         fetchMovieVideos: build.query({
-            query: (args) => ({
-                url: `/films/${args}/videos`,
+            query: (arg) => ({
+                url: `/films/${arg}/videos`,
                 headers: {
                     'X-API-KEY': API_FILMS_KEY,
                     'Content-Type': 'application/json',
@@ -47,8 +47,8 @@ export const moviesAPI = createApi({
             })
         }),
         fetchMovieImages: build.query({
-            query: (args) => ({
-                url: `/films/${args}/images`,
+            query: (arg) => ({
+                url: `/films/${arg}/images`,
                 headers: {
                     'X-API-KEY': API_FILMS_KEY,
                     'Content-Type': 'application/json',
