@@ -1,22 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useFetching } from '../../hooks/useFetching';
-import FilmService from '../../API/FilmService';
 import Loader from '../../components/UI/Loader/Loader';
+import { staffAPI } from '../../services/StaffService';
 
 const Name = () => {
-    const [name, setName] = useState(null);
-
     const params = useParams();
-
-    const [fetchName, isLoading, error] = useFetching(async () => {
-        const response = await FilmService.getName(params.id);
-        setName(response.data);
-    });
-
-    useEffect(() => {
-        fetchName()
-    }, []);
+    const {data: name, isLoading, error} = staffAPI.useFetchNameQuery(params.id)
 
     return (
       <div>

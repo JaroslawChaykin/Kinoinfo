@@ -37,5 +37,23 @@ export const moviesAPI = createApi({
                 }
             })
         }),
+        fetchMovieVideos: build.query({
+            query: (args) => ({
+                url: `/films/${args}/videos`,
+                headers: {
+                    'X-API-KEY': API_FILMS_KEY,
+                    'Content-Type': 'application/json',
+                }
+            })
+        }),
+        fetchMovieImages: build.query({
+            query: (args) => ({
+                url: `/films/${args}/images`,
+                headers: {
+                    'X-API-KEY': API_FILMS_KEY,
+                    'Content-Type': 'application/json',
+                }
+            })
+        }),
     }),
 });

@@ -3,7 +3,7 @@ import classes from './MovieData.module.scss';
 import MovieHeader from '../MovieHeader/MovieHeader';
 import RowOfDataCategory from '../RowOfDataCategory/RowOfDataCategory';
 
-const MovieDataList = ({data}) => {
+const MovieDataList = ({data, dataStaff}) => {
 
     const createObjectOfStaffMovie = (dataStaff) => {
         let createArrayFromObject = []
@@ -26,7 +26,7 @@ const MovieDataList = ({data}) => {
         PRODUCER,
         ACTOR,
         VOICE_DIRECTOR,
-        UNKNOWN} = createObjectOfStaffMovie(data.staff)
+        UNKNOWN} = createObjectOfStaffMovie(dataStaff)
     return (
       <div>
           <MovieHeader data={data}/>

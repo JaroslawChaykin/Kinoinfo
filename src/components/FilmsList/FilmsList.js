@@ -10,14 +10,18 @@ const FilmsList = () => {
           {error && <h1>{error}</h1>}
           {isLoading
             ? <Loader/>
-            : <>{movies.items.length === 0
-              ?
-              <h1>Список фильмов пуст</h1>
-              :
-              <div className={classes.filmsList}>
-                  {movies.items.map((movie) => <FilmItem key={movie.kinopoiskId} film={movie}/>)}
-              </div>
-            }</>
+            :
+            <>
+                {
+                    movies.items.length === 0
+                      ?
+                      <h1>Список фильмов пуст</h1>
+                      :
+                      <div className={classes.filmsList}>
+                          {movies.items.map((movie, index) => <FilmItem key={movie.kinopoiskId + index} film={movie}/>)}
+                      </div>
+                }
+            </>
           }
       </>
     );
