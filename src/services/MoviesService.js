@@ -2,6 +2,10 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const API_FILMS_KEY = '7a168f15-46dd-4e8b-b8af-a46b9a0793ec';
 const baseMovieUrl = `https://kinopoiskapiunofficial.tech/api/v2.2`
+const globalHeaders = {
+    'X-API-KEY': API_FILMS_KEY,
+    'Content-Type': 'application/json',
+}
 
 export const moviesAPI = createApi({
     reducerPath: 'moviesAPI',
@@ -13,46 +17,31 @@ export const moviesAPI = createApi({
                 params: {
                   page: 2
                 },
-                headers: {
-                    'X-API-KEY': API_FILMS_KEY,
-                    'Content-Type': 'application/json',
-                }
+                headers: globalHeaders
             })
         }),
         fetchMovieByID: build.query({
             query: (arg) => ({
                 url: `/films/${arg}`,
-                headers: {
-                    'X-API-KEY': API_FILMS_KEY,
-                    'Content-Type': 'application/json',
-                }
+                headers: globalHeaders
             })
         }),
         fetchMovieBoxOffice: build.query({
             query: (arg) => ({
                 url: `/films/${arg}/box_office`,
-                headers: {
-                    'X-API-KEY': API_FILMS_KEY,
-                    'Content-Type': 'application/json',
-                }
+                headers: globalHeaders
             })
         }),
         fetchMovieVideos: build.query({
             query: (arg) => ({
                 url: `/films/${arg}/videos`,
-                headers: {
-                    'X-API-KEY': API_FILMS_KEY,
-                    'Content-Type': 'application/json',
-                }
+                headers: globalHeaders
             })
         }),
         fetchMovieImages: build.query({
             query: (arg) => ({
                 url: `/films/${arg}/images`,
-                headers: {
-                    'X-API-KEY': API_FILMS_KEY,
-                    'Content-Type': 'application/json',
-                }
+                headers: globalHeaders
             })
         }),
     }),

@@ -1,6 +1,5 @@
-import React from 'react';
-import classes from './FilmItem.module.scss'
 import { Link } from 'react-router-dom';
+import classes from './FilmItem.module.scss'
 
 const FilmItem = ({film}) => {
     return (

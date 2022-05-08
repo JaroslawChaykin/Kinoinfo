@@ -1,5 +1,4 @@
 .filmsList {
-  display: grid;
+  display: flex;
   gap: 20px;
-  grid-template-columns: repeat(8, 1fr);
 }
