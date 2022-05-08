@@ -14,11 +14,9 @@ const FilmsList = () => {
     if (movies.items.length === 0) return <h1>Список фильмов пуст</h1>
     
     return (
-      <Fragment>
-        <div className={classes.filmsList}>
+      <div className={classes.filmsList}>
           {movies.items.map((movie, index) => <FilmItem key={movie.kinopoiskId + index} film={movie}/>)}
-        </div>
-      </>
+      </div>
     );
 };
 
