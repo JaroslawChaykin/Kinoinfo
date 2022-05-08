@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import FilmItem from '../FilmItem/FilmItem';
 import Loader from '../UI/Loader/Loader';
 import { moviesAPI } from '../../services/MoviesService';
