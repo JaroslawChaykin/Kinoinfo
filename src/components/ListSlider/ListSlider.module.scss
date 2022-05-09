@@ -1,0 +1,33 @@
+.slider {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  &BtnLeft, &BtnRight {
+    position: absolute;
+    display: flex;
+    padding: 2px 10px;
+    background: red;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 5;
+    &:hover {
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.46);
+    }
+  }
+  &BtnLeft {
+    left: -15px;
+  }
+  &BtnRight {
+    right: -15px;
+  }
+  &Child {
+    z-index: 1;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+}
