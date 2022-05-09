@@ -8,6 +8,7 @@ import MovieRating from '../../components/MovieRating/MovieRating';
 import { moviesAPI } from '../../services/MoviesService';
 import { staffAPI } from '../../services/StaffService';
 import './MoviePage.scss'
+import useTitle from '../../hooks/useTitle';
 
 const MoviePage = () => {
     const params = useParams();
@@ -17,11 +18,7 @@ const MoviePage = () => {
     const {data: movieImages, isLoading: isLoadingI} = moviesAPI.useFetchMovieImagesQuery(params.id)
     const {data: movieStaffData, isLoading: isLoadingS} = staffAPI.useFetchStaffQuery(params.id)
 
-    useEffect( () => {
-        if(movieData) {
-            document.title = (movieData.nameRu || movieData.nameOriginal) + ' - Kinoinfo'
-        }
-    }, [isLoadingM]);
+    useTitle(`${movieData?.nameRu || movieData?.nameOriginal} - Kinoinfo`)
 
     return (
       <div className="moviePage">
