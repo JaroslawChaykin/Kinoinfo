@@ -23,11 +23,11 @@ const ListSlider = ({children}) => {
 
     return (
       <div className={classes.slider}>
-          <span className={classes.sliderBtnLeft} onClick={scrolledLeft}>Left</span>
+          <span className={classes.sliderBtnLeft} onClick={scrolledLeft}>❮</span>
           <div className={classes.sliderChild} ref={ref}>
               {children}
           </div>
-          <span className={classes.sliderBtnRight} onClick={scrolledRight}>Right</span>
+          <span className={classes.sliderBtnRight} onClick={scrolledRight}>❯</span>
       </div>
     );
 };
