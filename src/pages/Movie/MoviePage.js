@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Loader from '../../components/UI/Loader/Loader';
 import MovieDataList from '../../components/MovieDataList/MovieDataList';
@@ -20,20 +19,17 @@ const MoviePage = () => {
 
     useTitle(`${movieData?.nameRu || movieData?.nameOriginal} - Kinoinfo`)
 
+    if([isLoadingM, isLoadingBO, isLoadingV, isLoadingI, isLoadingS].some(item => item === true)) return <Loader/>
+
     return (
       <div className="moviePage">
-          {
-              [isLoadingM, isLoadingBO, isLoadingV, isLoadingI, isLoadingS].some(item => item === true)
-                ? <Loader/>
-                :
-                <div className={'container'}>
-                    <div className={'bg containerGrid containerGrid1fr2fr1fr'}>
-                        <MovieMedia data={movieData} />
-                        <MovieDataList data={movieData} dataStaff={movieStaffData} />
-                        <MovieRating data={movieData} />
-                    </div>
-                </div>
-          }
+          <div className={'container'}>
+              <div className={'bg containerGrid containerGrid1fr2fr1fr'}>
+                  <MovieMedia data={movieData} />
+                  <MovieDataList data={movieData} dataStaff={movieStaffData} />
+                  <MovieRating data={movieData} />
+              </div>
+          </div>
       </div>
     );
 };
