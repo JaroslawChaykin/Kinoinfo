@@ -12,7 +12,6 @@ const ListSlider = ({children}) => {
     };
 
     const scrolledRight = () => {
-        console.log(totalLength - (-ref.current.children[0].scrollWidth) > ref.current.offsetWidth);
         if (totalLength - (-ref.current.children[0].scrollWidth) > ref.current.offsetWidth) {
             setTotalLength(totalLength - ref.current.offsetWidth);
         }
