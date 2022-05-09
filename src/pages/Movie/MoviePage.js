@@ -8,6 +8,7 @@ import { moviesAPI } from '../../services/MoviesService';
 import { staffAPI } from '../../services/StaffService';
 import './MoviePage.scss'
 import useTitle from '../../hooks/useTitle';
+import Container from '../../components/Container/Container';
 
 const MoviePage = () => {
     const params = useParams();
@@ -23,13 +24,13 @@ const MoviePage = () => {
 
     return (
       <div className="moviePage">
-          <div className={'container'}>
+          <Container>
               <div className={'bg containerGrid containerGrid1fr2fr1fr'}>
                   <MovieMedia data={movieData} />
                   <MovieDataList data={movieData} dataStaff={movieStaffData} />
                   <MovieRating data={movieData} />
               </div>
-          </div>
+          </Container>
       </div>
     );
 };
