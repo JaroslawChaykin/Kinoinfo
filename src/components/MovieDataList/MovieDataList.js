@@ -6,11 +6,11 @@ import RowOfDataCategory from '../RowOfDataCategory/RowOfDataCategory';
 const MovieDataList = ({data, dataStaff}) => {
 
     const createObjectOfStaffMovie = (dataStaff) => {
-        let createArrayFromObject = []
+        let arrayFromObject = []
         for(let i = 0; i < Object.keys(dataStaff).length; i++) {
-            createArrayFromObject.push(dataStaff[i])
+            arrayFromObject.push(dataStaff[i])
         }
-        return createArrayFromObject.reduce((acc, item) => {
+        return arrayFromObject.reduce((acc, item) => {
             acc[item.professionKey] ? acc[item.professionKey].push(item) : acc[item.professionKey] = [item]
             return acc
         }, {})
